@@ -1,0 +1,781 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="mainModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="Data Source=D:\MyProjects\TozinAppNetFramework\TozinAppNetFramework\Tozin.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6005: The data type '' is currently not supported for the target Entity Framework version; the column 'User_Id' in the table 'main.AccMax' was excluded.-->
+        <EntityType Name="AccMax">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Buyer_Id" Type="int" />
+          <Property Name="Seller_Id" Type="int" />
+          <Property Name="Max_Bill" Type="real" />
+        </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Code" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Address" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Tell" Type="int" />
+          <Property Name="SetTonage" Type="real" />
+          <Property Name="StartSetDate" Type="datetime" />
+          <Property Name="StartSetTime" Type="varchar" MaxLength="2147483647" />
+          <Property Name="StartSet_PDate" Type="varchar" MaxLength="2147483647" />
+          <Property Name="BuyerSeller" Type="varchar" MaxLength="2147483647" />
+          <Property Name="Status" Type="tinyint" />
+          <Property Name="CurrentTonage" Type="real" />
+        </EntityType>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Buyer_Id" Type="int" />
+          <Property Name="Seller_Id" Type="int" />
+          <Property Name="Tozin_Id" Type="int" />
+          <Property Name="Price" Type="real" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Car_Number" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Car_City_Number" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Full_Number" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Free_Weight" Type="real" />
+          <Property Name="Add_Date" Type="datetime" />
+          <Property Name="Add_Persian_Date" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Add_Time" Type="datetime" />
+          <Property Name="State" Type="tinyint" />
+          <Property Name="Car_Type" Type="int" />
+          <Property Name="State_String" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Driver_Id" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6005: The data type '' is currently not supported for the target Entity Framework version; the column 'Tozin_Cost' in the table 'main.Car_Type' was excluded.-->
+        <EntityType Name="Car_Type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Car_Name" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Address" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="General_Setting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Backup_Route" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Company_Name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Company_Picname" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Main_Picname" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="ToziComment1Lable" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="ToziComment2Lable" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="ToziComment3Lable" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="CompanyTell" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="CompanyAddress" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="AutoBackup" Type="tinyint" />
+          <Property Name="DefaultPortName" Type="varchar" MaxLength="2147483647" />
+          <Property Name="CostAdd" Type="int" />
+        </EntityType>
+        <EntityType Name="Good">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Code" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Price" Type="real" />
+          <Property Name="Weight" Type="real" />
+          <Property Name="Available" Type="real" />
+          <Property Name="Activate" Type="tinyint" />
+          <Property Name="Unit_Id" Type="int" />
+          <Property Name="In_Unit" Type="int" />
+          <Property Name="In_Unit_Name" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Company_Logo" Type="blob" />
+          <Property Name="Mainformpic" Type="blob" />
+        </EntityType>
+        <EntityType Name="Tozin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="User_Id" Type="int" />
+          <Property Name="Buyer_Id" Type="int" />
+          <Property Name="Seller_Id" Type="int" />
+          <Property Name="Good_Id" Type="int" />
+          <Property Name="Car_Id" Type="int" />
+          <Property Name="Full_Weight" Type="real" />
+          <Property Name="Free_Weight" Type="real" />
+          <Property Name="Rein_Weight" Type="real" />
+          <Property Name="Unit_Price" Type="real" />
+          <Property Name="Total_Price" Type="real" />
+          <Property Name="Good_name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Good_Price" Type="real" />
+          <Property Name="Car_Number" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Driver_Name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Buyer_Pay" Type="real" />
+          <Property Name="Seller_Pay" Type="real" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="T_date" Type="datetime" />
+          <Property Name="T_Time" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="T_DatePersian" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="T_FirstFinal" Type="tinyint" />
+          <Property Name="InUnit_Amount" Type="varchar" MaxLength="2147483647" />
+          <Property Name="InUnit_title" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Cost_Percent" Type="real" />
+          <Property Name="Total_Payment" Type="real" />
+          <Property Name="Free_Pdate" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="FreeT_Time" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="FreeT_Id" Type="int" />
+          <Property Name="Company_Name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Oprator_name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Tozin_Number" Type="tinyint" />
+          <Property Name="Title1" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Title2" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Title3" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="TextTitle1" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="TextTile2" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="TextTitle3" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Edited" Type="tinyint" />
+          <Property Name="Driver_Id" Type="int" />
+          <Property Name="Cost_price" Type="real" />
+          <Property Name="Prrice_Type" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Tozin_Type" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="Tozin_Setting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="AndicatorName" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="BoudRate" Type="tinyint" />
+          <Property Name="BytesLen" Type="tinyint" />
+          <Property Name="PosByte" Type="tinyint" />
+          <Property Name="PosValue" Type="tinyint" />
+          <Property Name="PByte1Pos" Type="tinyint" />
+          <Property Name="PByte2Pos" Type="tinyint" />
+          <Property Name="PByte3Pos" Type="tinyint" />
+          <Property Name="PByte4Pos" Type="tinyint" />
+          <Property Name="PByte5Pos" Type="tinyint" />
+          <Property Name="PByte1Value" Type="tinyint" />
+          <Property Name="PByte2Value" Type="tinyint" />
+          <Property Name="PByte3Value" Type="tinyint" />
+          <Property Name="PByte4Value" Type="tinyint" />
+          <Property Name="PByte5Value" Type="tinyint" />
+          <Property Name="NegByte" Type="tinyint" />
+          <Property Name="NegValue" Type="tinyint" />
+          <Property Name="NByte1Pos" Type="tinyint" />
+          <Property Name="NByte2Pos" Type="tinyint" />
+          <Property Name="NByte3Pos" Type="tinyint" />
+          <Property Name="NByte4Pos" Type="tinyint" />
+          <Property Name="NByte5Pos" Type="tinyint" />
+          <Property Name="NByte1Value" Type="tinyint" />
+          <Property Name="NByte2Value" Type="tinyint" />
+          <Property Name="NByte3Value" Type="tinyint" />
+          <Property Name="NByte4Value" Type="tinyint" />
+          <Property Name="NByte5Value" Type="tinyint" />
+          <Property Name="DefaultIndicatior" Type="tinyint" />
+          <Property Name="ToDecimal" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Sign" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Password" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Address" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="PersonalCode" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="sex" Type="tinyint" />
+          <Property Name="single" Type="tinyint" />
+          <Property Name="BirthDate" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Passport" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="PlaceIss" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="PlaceBirth" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="NationalCode" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="AccessGood" Type="tinyint" />
+          <Property Name="AccessCar" Type="tinyint" />
+          <Property Name="AccessAccount" Type="tinyint" />
+          <Property Name="AccessUsers" Type="tinyint" />
+          <Property Name="AccessUnit" Type="tinyint" />
+          <Property Name="AccessAddAmount" Type="tinyint" />
+          <Property Name="AccessTozin" Type="tinyint" />
+        </EntityType>
+        <EntityContainer Name="mainModelStoreContainer">
+          <EntitySet Name="AccMax" EntityType="Self.AccMax" store:Type="Tables" />
+          <EntitySet Name="Account" EntityType="Self.Account" store:Type="Tables" />
+          <EntitySet Name="Bill" EntityType="Self.Bill" store:Type="Tables" />
+          <EntitySet Name="Car" EntityType="Self.Car" store:Type="Tables" />
+          <EntitySet Name="Car_Type" EntityType="Self.Car_Type" store:Type="Tables" />
+          <EntitySet Name="Driver" EntityType="Self.Driver" store:Type="Tables" />
+          <EntitySet Name="General_Setting" EntityType="Self.General_Setting" store:Type="Tables" />
+          <EntitySet Name="Good" EntityType="Self.Good" store:Type="Tables" />
+          <EntitySet Name="Picture" EntityType="Self.Picture" store:Type="Tables" />
+          <EntitySet Name="Tozin" EntityType="Self.Tozin" store:Type="Tables" />
+          <EntitySet Name="Tozin_Setting" EntityType="Self.Tozin_Setting" store:Type="Tables" />
+          <EntitySet Name="Unit" EntityType="Self.Unit" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mainModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AccMax">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Buyer_Id" Type="Int32" />
+          <Property Name="Seller_Id" Type="Int32" />
+          <Property Name="Max_Bill" Type="Double" />
+        </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Tell" Type="Int32" />
+          <Property Name="SetTonage" Type="Double" />
+          <Property Name="StartSetDate" Type="DateTime" />
+          <Property Name="StartSetTime" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" />
+          <Property Name="StartSet_PDate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" />
+          <Property Name="BuyerSeller" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Byte" />
+          <Property Name="CurrentTonage" Type="Double" />
+        </EntityType>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Buyer_Id" Type="Int32" />
+          <Property Name="Seller_Id" Type="Int32" />
+          <Property Name="Tozin_Id" Type="Int32" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Comment" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Car_Number" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Car_City_Number" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Full_Number" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Free_Weight" Type="Double" />
+          <Property Name="Add_Date" Type="DateTime" />
+          <Property Name="Add_Persian_Date" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Add_Time" Type="DateTime" />
+          <Property Name="State" Type="Byte" />
+          <Property Name="Car_Type" Type="Int32" />
+          <Property Name="State_String" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Driver_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Car_Type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Car_Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="General_Setting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Backup_Route" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Company_Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Company_Picname" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Main_Picname" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ToziComment1Lable" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ToziComment2Lable" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ToziComment3Lable" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyTell" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddress" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="AutoBackup" Type="Byte" />
+          <Property Name="DefaultPortName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" />
+          <Property Name="CostAdd" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Good">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="Available" Type="Double" />
+          <Property Name="Activate" Type="Byte" />
+          <Property Name="Unit_Id" Type="Int32" />
+          <Property Name="In_Unit" Type="Int32" />
+          <Property Name="In_Unit_Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Company_Logo" Type="Binary" MaxLength="2147483647" FixedLength="false" />
+          <Property Name="Mainformpic" Type="Binary" MaxLength="2147483647" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tozin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="User_Id" Type="Int32" />
+          <Property Name="Buyer_Id" Type="Int32" />
+          <Property Name="Seller_Id" Type="Int32" />
+          <Property Name="Good_Id" Type="Int32" />
+          <Property Name="Car_Id" Type="Int32" />
+          <Property Name="Full_Weight" Type="Double" />
+          <Property Name="Free_Weight" Type="Double" />
+          <Property Name="Rein_Weight" Type="Double" />
+          <Property Name="Unit_Price" Type="Double" />
+          <Property Name="Total_Price" Type="Double" />
+          <Property Name="Good_name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Good_Price" Type="Double" />
+          <Property Name="Car_Number" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Driver_Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Buyer_Pay" Type="Double" />
+          <Property Name="Seller_Pay" Type="Double" />
+          <Property Name="Comment" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="T_date" Type="DateTime" />
+          <Property Name="T_Time" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="T_DatePersian" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="T_FirstFinal" Type="Byte" />
+          <Property Name="InUnit_Amount" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" />
+          <Property Name="InUnit_title" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Cost_Percent" Type="Double" />
+          <Property Name="Total_Payment" Type="Double" />
+          <Property Name="Free_Pdate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="FreeT_Time" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="FreeT_Id" Type="Int32" />
+          <Property Name="Company_Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Oprator_name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Tozin_Number" Type="Byte" />
+          <Property Name="Title1" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Title2" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Title3" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="TextTitle1" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="TextTile2" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="TextTitle3" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Edited" Type="Byte" />
+          <Property Name="Driver_Id" Type="Int32" />
+          <Property Name="Cost_price" Type="Double" />
+          <Property Name="Prrice_Type" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Tozin_Type" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tozin_Setting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="AndicatorName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="BoudRate" Type="Byte" />
+          <Property Name="BytesLen" Type="Byte" />
+          <Property Name="PosByte" Type="Byte" />
+          <Property Name="PosValue" Type="Byte" />
+          <Property Name="PByte1Pos" Type="Byte" />
+          <Property Name="PByte2Pos" Type="Byte" />
+          <Property Name="PByte3Pos" Type="Byte" />
+          <Property Name="PByte4Pos" Type="Byte" />
+          <Property Name="PByte5Pos" Type="Byte" />
+          <Property Name="PByte1Value" Type="Byte" />
+          <Property Name="PByte2Value" Type="Byte" />
+          <Property Name="PByte3Value" Type="Byte" />
+          <Property Name="PByte4Value" Type="Byte" />
+          <Property Name="PByte5Value" Type="Byte" />
+          <Property Name="NegByte" Type="Byte" />
+          <Property Name="NegValue" Type="Byte" />
+          <Property Name="NByte1Pos" Type="Byte" />
+          <Property Name="NByte2Pos" Type="Byte" />
+          <Property Name="NByte3Pos" Type="Byte" />
+          <Property Name="NByte4Pos" Type="Byte" />
+          <Property Name="NByte5Pos" Type="Byte" />
+          <Property Name="NByte1Value" Type="Byte" />
+          <Property Name="NByte2Value" Type="Byte" />
+          <Property Name="NByte3Value" Type="Byte" />
+          <Property Name="NByte4Value" Type="Byte" />
+          <Property Name="NByte5Value" Type="Byte" />
+          <Property Name="DefaultIndicatior" Type="Byte" />
+          <Property Name="ToDecimal" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Sign" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalCode" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="sex" Type="Byte" />
+          <Property Name="single" Type="Byte" />
+          <Property Name="BirthDate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Passport" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="FatherName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="PlaceIss" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="PlaceBirth" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="NationalCode" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="AccessGood" Type="Byte" />
+          <Property Name="AccessCar" Type="Byte" />
+          <Property Name="AccessAccount" Type="Byte" />
+          <Property Name="AccessUsers" Type="Byte" />
+          <Property Name="AccessUnit" Type="Byte" />
+          <Property Name="AccessAddAmount" Type="Byte" />
+          <Property Name="AccessTozin" Type="Byte" />
+        </EntityType>
+        <EntityContainer Name="mainEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccMaxes" EntityType="Self.AccMax" />
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="Bills" EntityType="Self.Bill" />
+          <EntitySet Name="Cars" EntityType="Self.Car" />
+          <EntitySet Name="Car_Type" EntityType="Self.Car_Type" />
+          <EntitySet Name="Drivers" EntityType="Self.Driver" />
+          <EntitySet Name="General_Setting" EntityType="Self.General_Setting" />
+          <EntitySet Name="Goods" EntityType="Self.Good" />
+          <EntitySet Name="Pictures" EntityType="Self.Picture" />
+          <EntitySet Name="Tozins" EntityType="Self.Tozin" />
+          <EntitySet Name="Tozin_Setting" EntityType="Self.Tozin_Setting" />
+          <EntitySet Name="Units" EntityType="Self.Unit" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mainModelStoreContainer" CdmEntityContainer="mainEntities1">
+          <EntitySetMapping Name="AccMaxes">
+            <EntityTypeMapping TypeName="mainModel.AccMax">
+              <MappingFragment StoreEntitySet="AccMax">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Buyer_Id" ColumnName="Buyer_Id" />
+                <ScalarProperty Name="Seller_Id" ColumnName="Seller_Id" />
+                <ScalarProperty Name="Max_Bill" ColumnName="Max_Bill" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="mainModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Tell" ColumnName="Tell" />
+                <ScalarProperty Name="SetTonage" ColumnName="SetTonage" />
+                <ScalarProperty Name="StartSetDate" ColumnName="StartSetDate" />
+                <ScalarProperty Name="StartSetTime" ColumnName="StartSetTime" />
+                <ScalarProperty Name="StartSet_PDate" ColumnName="StartSet_PDate" />
+                <ScalarProperty Name="BuyerSeller" ColumnName="BuyerSeller" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CurrentTonage" ColumnName="CurrentTonage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bills">
+            <EntityTypeMapping TypeName="mainModel.Bill">
+              <MappingFragment StoreEntitySet="Bill">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Buyer_Id" ColumnName="Buyer_Id" />
+                <ScalarProperty Name="Seller_Id" ColumnName="Seller_Id" />
+                <ScalarProperty Name="Tozin_Id" ColumnName="Tozin_Id" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cars">
+            <EntityTypeMapping TypeName="mainModel.Car">
+              <MappingFragment StoreEntitySet="Car">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Car_Number" ColumnName="Car_Number" />
+                <ScalarProperty Name="Car_City_Number" ColumnName="Car_City_Number" />
+                <ScalarProperty Name="Full_Number" ColumnName="Full_Number" />
+                <ScalarProperty Name="Free_Weight" ColumnName="Free_Weight" />
+                <ScalarProperty Name="Add_Date" ColumnName="Add_Date" />
+                <ScalarProperty Name="Add_Persian_Date" ColumnName="Add_Persian_Date" />
+                <ScalarProperty Name="Add_Time" ColumnName="Add_Time" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Car_Type" ColumnName="Car_Type" />
+                <ScalarProperty Name="State_String" ColumnName="State_String" />
+                <ScalarProperty Name="Driver_Id" ColumnName="Driver_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Car_Type">
+            <EntityTypeMapping TypeName="mainModel.Car_Type">
+              <MappingFragment StoreEntitySet="Car_Type">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Car_Name" ColumnName="Car_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drivers">
+            <EntityTypeMapping TypeName="mainModel.Driver">
+              <MappingFragment StoreEntitySet="Driver">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="General_Setting">
+            <EntityTypeMapping TypeName="mainModel.General_Setting">
+              <MappingFragment StoreEntitySet="General_Setting">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Backup_Route" ColumnName="Backup_Route" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Company_Picname" ColumnName="Company_Picname" />
+                <ScalarProperty Name="Main_Picname" ColumnName="Main_Picname" />
+                <ScalarProperty Name="ToziComment1Lable" ColumnName="ToziComment1Lable" />
+                <ScalarProperty Name="ToziComment2Lable" ColumnName="ToziComment2Lable" />
+                <ScalarProperty Name="ToziComment3Lable" ColumnName="ToziComment3Lable" />
+                <ScalarProperty Name="CompanyTell" ColumnName="CompanyTell" />
+                <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+                <ScalarProperty Name="AutoBackup" ColumnName="AutoBackup" />
+                <ScalarProperty Name="DefaultPortName" ColumnName="DefaultPortName" />
+                <ScalarProperty Name="CostAdd" ColumnName="CostAdd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Goods">
+            <EntityTypeMapping TypeName="mainModel.Good">
+              <MappingFragment StoreEntitySet="Good">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Available" ColumnName="Available" />
+                <ScalarProperty Name="Activate" ColumnName="Activate" />
+                <ScalarProperty Name="Unit_Id" ColumnName="Unit_Id" />
+                <ScalarProperty Name="In_Unit" ColumnName="In_Unit" />
+                <ScalarProperty Name="In_Unit_Name" ColumnName="In_Unit_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pictures">
+            <EntityTypeMapping TypeName="mainModel.Picture">
+              <MappingFragment StoreEntitySet="Picture">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Company_Logo" ColumnName="Company_Logo" />
+                <ScalarProperty Name="Mainformpic" ColumnName="Mainformpic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tozins">
+            <EntityTypeMapping TypeName="mainModel.Tozin">
+              <MappingFragment StoreEntitySet="Tozin">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Buyer_Id" ColumnName="Buyer_Id" />
+                <ScalarProperty Name="Seller_Id" ColumnName="Seller_Id" />
+                <ScalarProperty Name="Good_Id" ColumnName="Good_Id" />
+                <ScalarProperty Name="Car_Id" ColumnName="Car_Id" />
+                <ScalarProperty Name="Full_Weight" ColumnName="Full_Weight" />
+                <ScalarProperty Name="Free_Weight" ColumnName="Free_Weight" />
+                <ScalarProperty Name="Rein_Weight" ColumnName="Rein_Weight" />
+                <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+                <ScalarProperty Name="Total_Price" ColumnName="Total_Price" />
+                <ScalarProperty Name="Good_name" ColumnName="Good_name" />
+                <ScalarProperty Name="Good_Price" ColumnName="Good_Price" />
+                <ScalarProperty Name="Car_Number" ColumnName="Car_Number" />
+                <ScalarProperty Name="Driver_Name" ColumnName="Driver_Name" />
+                <ScalarProperty Name="Buyer_Pay" ColumnName="Buyer_Pay" />
+                <ScalarProperty Name="Seller_Pay" ColumnName="Seller_Pay" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="T_date" ColumnName="T_date" />
+                <ScalarProperty Name="T_Time" ColumnName="T_Time" />
+                <ScalarProperty Name="T_DatePersian" ColumnName="T_DatePersian" />
+                <ScalarProperty Name="T_FirstFinal" ColumnName="T_FirstFinal" />
+                <ScalarProperty Name="InUnit_Amount" ColumnName="InUnit_Amount" />
+                <ScalarProperty Name="InUnit_title" ColumnName="InUnit_title" />
+                <ScalarProperty Name="Cost_Percent" ColumnName="Cost_Percent" />
+                <ScalarProperty Name="Total_Payment" ColumnName="Total_Payment" />
+                <ScalarProperty Name="Free_Pdate" ColumnName="Free_Pdate" />
+                <ScalarProperty Name="FreeT_Time" ColumnName="FreeT_Time" />
+                <ScalarProperty Name="FreeT_Id" ColumnName="FreeT_Id" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Oprator_name" ColumnName="Oprator_name" />
+                <ScalarProperty Name="Tozin_Number" ColumnName="Tozin_Number" />
+                <ScalarProperty Name="Title1" ColumnName="Title1" />
+                <ScalarProperty Name="Title2" ColumnName="Title2" />
+                <ScalarProperty Name="Title3" ColumnName="Title3" />
+                <ScalarProperty Name="TextTitle1" ColumnName="TextTitle1" />
+                <ScalarProperty Name="TextTile2" ColumnName="TextTile2" />
+                <ScalarProperty Name="TextTitle3" ColumnName="TextTitle3" />
+                <ScalarProperty Name="Edited" ColumnName="Edited" />
+                <ScalarProperty Name="Driver_Id" ColumnName="Driver_Id" />
+                <ScalarProperty Name="Cost_price" ColumnName="Cost_price" />
+                <ScalarProperty Name="Prrice_Type" ColumnName="Prrice_Type" />
+                <ScalarProperty Name="Tozin_Type" ColumnName="Tozin_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tozin_Setting">
+            <EntityTypeMapping TypeName="mainModel.Tozin_Setting">
+              <MappingFragment StoreEntitySet="Tozin_Setting">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AndicatorName" ColumnName="AndicatorName" />
+                <ScalarProperty Name="BoudRate" ColumnName="BoudRate" />
+                <ScalarProperty Name="BytesLen" ColumnName="BytesLen" />
+                <ScalarProperty Name="PosByte" ColumnName="PosByte" />
+                <ScalarProperty Name="PosValue" ColumnName="PosValue" />
+                <ScalarProperty Name="PByte1Pos" ColumnName="PByte1Pos" />
+                <ScalarProperty Name="PByte2Pos" ColumnName="PByte2Pos" />
+                <ScalarProperty Name="PByte3Pos" ColumnName="PByte3Pos" />
+                <ScalarProperty Name="PByte4Pos" ColumnName="PByte4Pos" />
+                <ScalarProperty Name="PByte5Pos" ColumnName="PByte5Pos" />
+                <ScalarProperty Name="PByte1Value" ColumnName="PByte1Value" />
+                <ScalarProperty Name="PByte2Value" ColumnName="PByte2Value" />
+                <ScalarProperty Name="PByte3Value" ColumnName="PByte3Value" />
+                <ScalarProperty Name="PByte4Value" ColumnName="PByte4Value" />
+                <ScalarProperty Name="PByte5Value" ColumnName="PByte5Value" />
+                <ScalarProperty Name="NegByte" ColumnName="NegByte" />
+                <ScalarProperty Name="NegValue" ColumnName="NegValue" />
+                <ScalarProperty Name="NByte1Pos" ColumnName="NByte1Pos" />
+                <ScalarProperty Name="NByte2Pos" ColumnName="NByte2Pos" />
+                <ScalarProperty Name="NByte3Pos" ColumnName="NByte3Pos" />
+                <ScalarProperty Name="NByte4Pos" ColumnName="NByte4Pos" />
+                <ScalarProperty Name="NByte5Pos" ColumnName="NByte5Pos" />
+                <ScalarProperty Name="NByte1Value" ColumnName="NByte1Value" />
+                <ScalarProperty Name="NByte2Value" ColumnName="NByte2Value" />
+                <ScalarProperty Name="NByte3Value" ColumnName="NByte3Value" />
+                <ScalarProperty Name="NByte4Value" ColumnName="NByte4Value" />
+                <ScalarProperty Name="NByte5Value" ColumnName="NByte5Value" />
+                <ScalarProperty Name="DefaultIndicatior" ColumnName="DefaultIndicatior" />
+                <ScalarProperty Name="ToDecimal" ColumnName="ToDecimal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Units">
+            <EntityTypeMapping TypeName="mainModel.Unit">
+              <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sign" ColumnName="Sign" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="mainModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PersonalCode" ColumnName="PersonalCode" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="single" ColumnName="single" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="PlaceIss" ColumnName="PlaceIss" />
+                <ScalarProperty Name="PlaceBirth" ColumnName="PlaceBirth" />
+                <ScalarProperty Name="NationalCode" ColumnName="NationalCode" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="AccessGood" ColumnName="AccessGood" />
+                <ScalarProperty Name="AccessCar" ColumnName="AccessCar" />
+                <ScalarProperty Name="AccessAccount" ColumnName="AccessAccount" />
+                <ScalarProperty Name="AccessUsers" ColumnName="AccessUsers" />
+                <ScalarProperty Name="AccessUnit" ColumnName="AccessUnit" />
+                <ScalarProperty Name="AccessAddAmount" ColumnName="AccessAddAmount" />
+                <ScalarProperty Name="AccessTozin" ColumnName="AccessTozin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
